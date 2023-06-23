@@ -23,7 +23,10 @@ router.get("/", (req, resp,) => {
     const queryImages = "SELECT * FROM userImages"
     const queryCom = "SELECT * FROM comment"
     connect.query(queryImages, (err, data) => {
-        if (err) resp.send("Lo siento...Estamos trabajando para solucionarlo") 
+        if (err){
+            resp.send("Lo siento...Estamos trabajando para solucionarlo") 
+            console.log(err.message)
+        }
         connect.query(queryCom, (err, comm) => {
             resp.render("index", { data, comm,decrypted})
         })
