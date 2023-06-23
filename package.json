@@ -1,0 +1,21 @@
+{
+  "name": "websitedesign",
+  "version": "1.0.0",
+  "description": "",
+  "main": "mainRoot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cloudinary": "^1.37.1",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-fileupload": "^1.4.0",
+    "mysql": "^2.18.1",
+    "pdfkit": "^0.13.0"
+  }
+}

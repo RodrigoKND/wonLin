@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("./header/head.ejs") %>
+
+    <body>
+        <form method="post" action="/searched">
+            <div class="input-group mt-3 p-3">
+                <input type="search" class="form-control inputKey" placeholder="Busc..." name="gifSearched">
+                <button class="btn btn-primary s-G">Buscar</button>
+            </div>
+        </form>
+        <h4 class="text-center">Da una bienvenida con un divertido GIF</h4>
+        <h6 class="text-danger text-center">
+            Cuando seleccione un gif, no olvide refrescar la página de su perfil...Gracias
+        </h6>
+        <div class="gif">
+            <% if(typeof trendingData !=="undefined" ){ %>
+                <% for(let urlSearched = 0; urlSearched < trendingData.data.length;urlSearched++){ %>
+                    <img src=<%=trendingData.data[urlSearched].images.downsized.url%> 
+                    alt="<%= trendingData.data[urlSearched].title %>"/>
+                <% } %>
+            <%} %>
+            <% if(typeof trending !=="undefined" ){ %>
+                <% for(let url=0; url<trending.data.length;url++){ %>
+                    <img src=<%=trending.data[url].images.downsized.url%> 
+                    alt="<%= trending.data[url].title %>"/>
+                <% } %>
+            <%} %>
+            
+        </div>
+        <script src="./js/perfilUsuario/Presentation.js" type="module"></script>
+    </body>
+
+</html>

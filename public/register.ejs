@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include("./header/head.ejs") %>
+
+    <body>
+        <div class="portf">
+            <div class="d-flex justify-content-start">
+                <button class="btn text-white fs-3 exit mt-2 mb-3 me-3" hidden>
+                    <i class="bi bi-x-lg"></i>
+                </button>
+                <button class="btn btn-primary export mt-2 mb-3" title="export to pdf" hidden>
+                    <a class="nav-link" href="/download/images" download="Portfolio">Export</a>
+                </button>
+            </div>
+        </div>
+        <!--Menu navegacion-->
+        <main>
+            <header
+                style="background: linear-gradient(to right, rgb(137, 225, 194),rgb(78, 165, 202)); background-size:cover;">
+                <ul class="d-flex p-2" style="list-style: none; text-decoration: none; cursor: pointer;">
+                    <li>
+                        <a target="_self" rel="nooponer" href="/post" class="btn fs-4">Publicar</a>
+                    </li>
+                    <li>
+                        <button type="button" class="btn fs-4 button">Gif</button>
+                    </li>
+                    <li class="me-4">
+                        <a class="btn fs-4" href="/">Inicio</a>
+                    </li>
+                    <button class="btn btn-success sh_P" disabled>Portafolio</button>
+                </ul>
+            </header>
+            <section class="p-3">
+                <!--Boton de perfil + redes sociales-->
+                <div class="d-flex justify-content-center">
+                    <input class="border border-danger fs-1 btnProfile btn" type="button"
+                        style="border-radius: 20px; padding: 20px;"
+                        value="<%= nameUser.toUpperCase().charAt(0) %>" />
+                </div>
+                <div class="d-flex justify-content-center" id="img-select"></div>
+                <!--Alerta del perfil y redes sociales-->
+                <!-- <div class="alert" id="1" hidden>
+                    <select class="btn p-2 border" style="border-radius:10px;">
+                        <option value="Left">Left</option>
+                        <option value="Right">Right</option>
+                        <option value="Center">Center</option>
+                    </select>
+                </div> -->
+                <!--Giph-->
+                <!-- <div class="alert" id="2" hidden>
+                    <select class="btn p-2 border selected" style="border-radius:10px;">
+                        <option value="Left">Left</option>
+                        <option value="Right">Right</option>
+                        <option value="Center">Center</option>
+                    </select>
+                </div> -->
+                <!--Imagenes tarjeta-->
+                <div class="mt-4">
+                    <div class="row row-cols-1 row-cols-md-4 g-0 containerCards">
+                        <% for(let i=0; i < data.length; i++){%>
+                            <% if(data[i].id_user===idRelation ){ %>
+                                <div class="col mt-2 p-2">
+                                    <div class="card border border-0 card_group" id="<%= data[i].id_Image%>"
+                                        style="width: min-content; box-shadow: 5px 5px 20px rgb(150, 147, 147);background-color:<%=data[i].colorCard%>;">
+                                        <div class="d-flex justify-content-end me-1">
+                                            <button class="btn fs-3 btnDots bg-success">
+                                                <i class="bi bi-three-dots text-white"></i>
+                                            </button>
+                                        </div>
+                                        <img class="card-img-top viewImage imgCard" src="<%= data[i].urlImg %>" />
+                                        <a class="text-center btn btn-primary" title="Descargar Imagen"
+                                            href=/download/<%=data[i].nameImg%>
+                                            download="<%=data[i].nameImg%>">
+                                            <i class="bi bi-cloud-arrow-down-fill"></i>
+                                        </a>
+                                        <div class="card-body">
+                                            <p class="card-text" style="color:<%= data[i].colorText%>;">
+                                                <%= data[i].contentCard %>
+                                            </p>
+                                        </div>
+                                        <div class="card-footer d-flex justify-content-center">
+                                            <button class="btn fs-3">
+                                                <a class="nav_link" style="color:rgb(200,233,249);"
+                                                    href="<%= data[i].socialMediaInstagram  %>" rel="noreferrer"
+                                                    target="_blank">
+                                                    <i class="bi bi-instagram"></i>
+                                                </a>
+                                            </button>
+                                            <button class="btn fs-3">
+                                                <a class="nav_link" style="color: rgb(200,233,249);"
+                                                    href="<%= data[i].socialMediaTwitter %>" rel="noreferrer"
+                                                    target="_blank">
+                                                    <i class="bi bi-twitter"></i>
+                                                </a>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <% } %>
+                                <% } %>
+                    </div>
+                </div>
+                <div class="alert" id="3" hidden>
+                    <select>
+                        <option value="Left">Left</option>
+                        <option value="Right">Right</option>
+                        <option value="Center">Center</option>
+                        <option value="Flex">Flex</option>
+                    </select>
+                </div>
+            </section>
+        </main>
+        <script src="./js/perfilUsuario/perfilMain.js"></script>
+        <script>
+            document.querySelector(".sh_P").addEventListener("click", () => {
+                const portf = document.querySelector(".portf");
+                const exit = document.querySelector(".exit");
+                const exportBTN = document.querySelector(".export");
+
+                portf.classList.add("bgPortfolio");
+        
+                <% for (let i = 0; i < data.length; i++) { %>
+                    const imgSizeReal<%= i %> = document.createElement("img")
+                    imgSizeReal<%=i %>.src = "<%= data[i].urlImg %>"
+                    imgSizeReal<%=i %>.alt = "Images"
+                    imgSizeReal<%=i %>.style.padding="20px"
+                    portf.appendChild(imgSizeReal<%=i%>)
+                <% } %>
+
+                    exit.removeAttribute("hidden")
+                    exportBTN.removeAttribute("hidden")
+            })
+        </script>
+    </body>
+</html>

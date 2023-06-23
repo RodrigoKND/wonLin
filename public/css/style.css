@@ -1,0 +1,101 @@
+body::-webkit-scrollbar{
+    background: purple;
+    width: 10px;
+}
+body::-webkit-scrollbar-thumb{
+    background: rgb(249, 236, 249);
+}
+
+.bg-p{
+    background: #15181d; 
+    width: auto;
+    position: relative;
+}
+
+.text_p {
+    font-family: 'Bagel Fat One', cursive;
+    font-size: 3em;
+}
+
+.menu {
+    position: absolute;
+    top: 70px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    padding: 10px;
+}
+
+.menuUser {display: none;}
+
+.menuUser-visibility {display: block;}
+
+.viewImage {
+    height: 322px;
+    width: 322px;
+    max-height: 400px;
+    max-width: 400px;
+    object-fit: cover;
+}
+.detailsCard {width: 355px;}
+
+.btnDots {
+    position: absolute;
+    top: 2px;
+    right: 0;
+}
+
+.list_action {
+    position: absolute;
+    top: 2px;
+    margin-right: 50px;
+}
+
+.bgPortfolio {
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, .5);
+    box-shadow: 0 0 0 10vmax rgba(2, 0, 0, .5);
+    height: max-content;
+    position: absolute;
+    z-index: 5;
+    width: auto;
+    --webkit-user-select: none;
+    user-select: none;
+}
+
+.border_input{
+    background: none;
+    border-top: none;
+    border-left: none;
+    border-right: none; 
+    border-bottom:5px solid rgb(248, 216, 248);
+}
+.border_input::placeholder{color: white;}
+.border_input:focus{
+    background: none;
+    border-color: none;
+    box-shadow: none;
+}
+
+.over{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 100vh;
+    max-height: 60vh;
+}
+
+.over::-webkit-scrollbar{
+    width: 10px;
+    background: aqua;
+}
+.over::-webkit-scrollbar-thumb{
+    background-color: rgb(204, 231, 245);
+}
+
+.com_static{
+    position: fixed;
+    bottom: 20px;
+    width: 480px;
+    box-shadow: 0px 2px 5px gray;
+    background: rgba(230, 227, 227, .2);
+}

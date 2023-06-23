@@ -1,0 +1,30 @@
+@media (max-width:280px){
+    .mainImage{
+        width: min-content;
+        height: 50px;
+        margin-left: 5%;
+    }
+    body{background: #15181d;}
+    .text_index{display: none;}
+    .btnLog{
+        padding: none;
+        display: flex;
+        margin: none;
+        font-size:x-large;
+    }
+}
+@media (max-width:450px) {
+    .mainImage{
+        width: min-content;
+        height: 450px;
+    }
+    .imagesBody{
+        display: none;
+    }
+}
+
+@media (max-width:1030px) {
+    .imagesBody{
+        display: none;
+    }
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("./header/head.ejs") %>
+</head>
+
+<body style="background: #18191A;">
+    <form method="post" action="/post/comment">
+        <a class="nav-link text-white btn border border-info mt-3 ms-4" href="/" style="width: 10%;">
+            Inicio
+        </a>
+        <div class="container" style="width: min-content;">
+            <img width="500" height="auto" style="object-fit:contain;"
+                src="<%=img.urlImg%>"
+            alt="image_post">
+            <div class="p-2 over">
+                <div class="container_comments">
+                    <% comment.forEach(com=>{ %>
+                        <%u.forEach(uname=>{%>
+                            <% if(com.id_com_user===uname.id && com.id_image_com===img.id_Image){%>
+                                <div class="row row-cols-1 row-cols-md-4 p-2 text-white">
+                                    <div class="col-1 text-white border p-2 me-2"
+                                        style="border-radius: 10px; width: max-content; height: min-content; user-select: none;">
+                                        <%=uname.name.toString().charAt().toUpperCase()%>
+                                    </div>
+                                    <div class="col-10">
+                                        <b>
+                                            <%=uname.name%>
+                                        </b>
+                                        <p class="pharaf" style="width: max-content;">
+                                            <%=com.contentComment%>
+                                        </p>
+                                    </div>
+                                </div>
+                                <%} %>
+                                    <% }) %>
+                                        <%})%>
+                </div>
+                <div class="input-group p-2 com_static">
+                    <input class="form-control border_input text-white me-3" type="text" placeholder="Comentario..."
+                        name="coment" maxlength="1000" />
+                    <input type="text" name="ifImg" value="<%= img.id_Image %>" hidden>
+                    <button class="btn btn-primary" type="submit">Comentar</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script src="/js/comment.js"></script>
+</body>
+
+</html>
