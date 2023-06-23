@@ -77,7 +77,7 @@
                                 <%= data[i].contentCard %>
                             </p>
                         </div>
-                        <% if(typeof comm !== "undefined"){
+                        <% if(typeof comm !== "undefined"){ %>
                             <% for(let index = 0; index<comm.length; index++){ %>
                                 <% if(comm[index].id_image_com === data[i].id_Image){ %>
                                     <div class="p-2 d-flex text-white ch_com"
@@ -90,7 +90,7 @@
                                     </div>
                                 <% } %>
                             <% } %>   
-                        } %> 
+                        <% } %> 
                         <div class="card-footer d-flex justify-content-center">
                             <button class="btn fs-3">
                                 <a class="nav_link" style="color:rgb(200,233,249);"
