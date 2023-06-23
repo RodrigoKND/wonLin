@@ -25,11 +25,13 @@ router.get("/", (req, resp,) => {
     connect.query(queryImages, (err, data) => {
         if (err){
             resp.send("Lo siento...Estamos trabajando para solucionarlo") 
-            console.log(err.message)
+            return;
         }
         connect.query(queryCom, (err, comm) => {
-            resp.render("index", { data, comm,decrypted})
+            if(err) resp.send("Lo siento...Estamos trabajando para solucionarlo")
+            return;
         })
+        resp.render("index", { data, comm,decrypted})
     })
 })
 router.get("/login", (req, resp) => { resp.render("login") })
