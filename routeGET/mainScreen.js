@@ -21,17 +21,21 @@ router.get("/", (req, resp,) => {
     }
     const queryImages = "SELECT * FROM userImages"
     const queryCom = "SELECT * FROM comment"
+    let data = " "
+    let comm = " "
     connect.query(queryImages, (err, data) => {
         if (err){
             resp.send("Lo siento...Estamos trabajando para solucionarlo") 
+            data = data
             return;
         }
         connect.query(queryCom, (err, comm) => {
             if(err) resp.send("Lo siento...Estamos trabajando para solucionarlo")
+            comm = comm
             return;
         })
-        resp.render("index", { data, comm,decrypted})
     })
+    resp.render("index", { data, comm,decrypted})
 })
 router.get("/login", (req, resp) => { resp.render("login") })
 router.get("/new", (req, resp) => {
