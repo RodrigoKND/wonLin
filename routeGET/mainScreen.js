@@ -19,7 +19,6 @@ router.get("/", (req, resp,) => {
     }else{
         decrypted = "cookie_empty"
     }
-    
     const queryImages = "SELECT * FROM userImages"
     const queryCom = "SELECT * FROM comment"
     connect.query(queryImages, (err, data) => {
