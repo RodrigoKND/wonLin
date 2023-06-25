@@ -3,6 +3,7 @@ const router = express.Router()
 const connect = require("../database/connect")
 const crypto = require("crypto")
 require("dotenv").config()
+
 router.get("/", (req, resp,) => {
     const cookie = req.headers.cookie;
     let decrypted = ""
